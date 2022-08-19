@@ -151,14 +151,11 @@ class ClientsGroup(object):
                 someone = client(TensorDataset(torch.tensor(local_data), torch.tensor(local_label)), self.dev)
                 self.clients_set['client{}'.format(i)] = someone
                 print('第', i, '个节点:', shard_size)
-            # print('test_label', len(test_label))
-            # print('train_label', len(train_label))
 
 
 if __name__=="__main__":
     MyClients = ClientsGroup('mnist', True, 100, 1)
     print(MyClients.clients_set['client10'].train_ds[0:100])
     print(MyClients.clients_set['client11'].train_ds[400:500])
-
 
 
